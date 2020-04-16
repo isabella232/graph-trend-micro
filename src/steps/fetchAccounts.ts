@@ -8,10 +8,7 @@ const step: IntegrationStep = {
   id: 'fetch-accounts',
   name: 'Fetch accounts',
   types: ['my_integration_account'],
-  async executionHandler({
-    logger,
-    jobState,
-  }: IntegrationStepExecutionContext) {
+  async executionHandler({ jobState }: IntegrationStepExecutionContext) {
     await jobState.addEntities([
       createIntegrationEntity({
         entityData: {
