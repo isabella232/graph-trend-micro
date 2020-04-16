@@ -5,11 +5,15 @@ import { retryableRequestError, fatalRequestError } from './error';
 
 const API_BASE_URL = 'https://app.deepsecurity.trendmicro.com/api';
 
-// The Deep Security API accepts an 'api-secret-key' for authenticating requests.
+// The Deep Security API accepts an 'api-secret-key' for authenticating
+// all requests.
+// An `api-version` also needs to be set, however there's only one accepted
+// value at the moment: "v1".
 //
 // ref: https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas#section/Authentication
 interface RequiredHeaders {
   'api-secret-key': string;
+  'api-version': 'v1';
 }
 
 interface DeepSecurityClientInput {
@@ -27,7 +31,12 @@ export class DeepSecurityClient {
     // in all fetch requests from this client
     this.requiredHeaders = {
       'api-secret-key': apiKey,
+      'api-version': 'v1',
     };
+  }
+
+  listComputers(): Promise<object> {
+    return this.fetch('/computers');
   }
 
   /**

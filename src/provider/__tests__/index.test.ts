@@ -14,5 +14,6 @@ test('creates a DeepSecurityClient using the api key from the integration instan
 
   expect(client.requiredHeaders).toEqual({
     'api-secret-key': 'my-api-key',
+    'api-version': 'v1',
   });
 });

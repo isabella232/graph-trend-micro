@@ -45,6 +45,7 @@ test('applies api key to requests made with client', async () => {
   expect(fetchSpy).toHaveBeenCalledWith(expect.any(String), {
     headers: {
       'api-secret-key': apiKey,
+      'api-version': 'v1',
     },
   });
 });
@@ -67,6 +68,7 @@ test('merges required headers with additional headers via options', async () => 
   expect(fetchSpy).toHaveBeenCalledWith(expect.any(String), {
     headers: {
       'api-secret-key': apiKey,
+      'api-version': 'v1',
       newHeader: '1',
     },
   });
