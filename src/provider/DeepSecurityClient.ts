@@ -35,6 +35,11 @@ export class DeepSecurityClient {
     };
   }
 
+  /**
+   * Lists _all_ computers
+   *
+   * ref: https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas#operation/listComputers
+   */
   listComputers(): Promise<object> {
     return this.fetch('/computers');
   }
