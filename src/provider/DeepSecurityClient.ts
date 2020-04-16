@@ -62,6 +62,7 @@ export class DeepSecurityClient {
       {
         maxAttempts: 10,
         delay: 200,
+        factor: 2,
         jitter: true,
         handleError: (err, context) => {
           if (!err.retryable) {
