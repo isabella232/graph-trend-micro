@@ -1,8 +1,13 @@
-import { IntegrationExecutionContext } from '@jupiterone/integration-sdk';
+import {
+  IntegrationExecutionContext,
+  IntegrationInstance,
+} from '@jupiterone/integration-sdk';
 
-export default function validateInvocation(
+import { createDeepSecurityClient } from './provider';
+
+export default async function validateInvocation(
   context: IntegrationExecutionContext,
-) {
+): Promise<void> {
   context.logger.info(
     {
       instance: context.instance,
@@ -10,15 +15,22 @@ export default function validateInvocation(
     'Validating integration config...',
   );
 
-  if (isConfigurationValid(context.instance.config)) {
+  if (await isConfigurationValid(context.instance)) {
     context.logger.info('Integration instance is valid!');
   } else {
     throw new Error('Failed to authenticate with provided credentials');
   }
 }
 
-function isConfigurationValid(config: any) {
-  // add your own validation logic to ensure you
-  // can hit the provider's apis.
-  return config.clientId && config.clientSecret;
+async function isConfigurationValid(
+  instance: IntegrationInstance,
+): Promise<boolean> {
+  // perform test api call. This will fail if we do not have access.
+  try {
+    const client = createDeepSecurityClient(instance);
+    await client.listComputers();
+    return true;
+  } catch (err) {
+    return false;
+  }
 }

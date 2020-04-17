@@ -450,10 +450,10 @@
   dependencies:
     ajv "^6.12.0"
 
-"@jupiterone/integration-sdk@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@jupiterone/integration-sdk/-/integration-sdk-0.2.2.tgz#13ff71b6a56f78939d860e2a9b0bab2e33453cef"
-  integrity sha512-TM9SRPJidM17Vrf5gdkN0FS22hjJJ5wl0/LHaT/HecRU77hcu7wen9rnTXmVEKy1KInwq9j++M1YWO03QwDLRw==
+"@jupiterone/integration-sdk@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@jupiterone/integration-sdk/-/integration-sdk-0.3.1.tgz#b0b3f1f52102f621584fbca9679510740cb2533a"
+  integrity sha512-U6dlEJmmq0JjFS13n1wnsX/j+DtHhdBaBZQyFixNJd4EMptnmIFJK0ZV/ZHAEUh2mAgCzV6wbraoZC7SU4vSLw==
   dependencies:
     "@jupiterone/data-model" "^0.2.0"
     async-sema "^3.1.0"
