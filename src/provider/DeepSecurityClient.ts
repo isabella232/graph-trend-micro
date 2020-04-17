@@ -2,6 +2,7 @@ import { retry } from '@lifeomic/attempt';
 import nodeFetch, { Request } from 'node-fetch';
 
 import { retryableRequestError, fatalRequestError } from './error';
+import { DeepSecurityApiKey } from './types';
 
 const API_BASE_URL = 'https://app.deepsecurity.trendmicro.com/api';
 
@@ -42,6 +43,15 @@ export class DeepSecurityClient {
    */
   listComputers(): Promise<object> {
     return this.fetch('/computers');
+  }
+
+  /**
+   * Lists _all_ api keys
+   *
+   * ref: https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas#operation/listApiKeys
+   */
+  listApiKeys(): Promise<{ apiKeys: DeepSecurityApiKey[] }> {
+    return this.fetch('/apikeys');
   }
 
   /**
