@@ -1,6 +1,8 @@
 import { IntegrationInstance } from '@jupiterone/integration-sdk';
 import { DeepSecurityClient } from './DeepSecurityClient';
 
+export * from './types';
+
 /**
  * Creates a DeepSecurityClient from an integration instance using it's
  * api key.
