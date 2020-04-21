@@ -120,7 +120,7 @@ test('administator entity conversion', async () => {
   expect(createAdministratorEntity(admin)).toEqual({
     description: 'Testing123',
     active: true,
-    _key: 'trend-micro-administator:8',
+    _key: 'trend-micro-administrator:8',
     _type: 'trend_micro_administrator',
     _class: ['User'],
     name: 'Charlie Test',
@@ -145,10 +145,10 @@ test('step data collection', async () => {
 
   expect(context.jobState.collectedEntities).toEqual([
     expect.objectContaining({
-      _key: 'trend-micro-administator:1',
+      _key: 'trend-micro-administrator:1',
     }),
     expect.objectContaining({
-      _key: 'trend-micro-administator:8',
+      _key: 'trend-micro-administrator:8',
     }),
   ]);
 });
