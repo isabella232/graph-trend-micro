@@ -14,7 +14,7 @@ const ADMIN_TYPE = 'trend_micro_administrator';
 
 const step: IntegrationStep = {
   id: 'fetch-administrators',
-  name: 'Fetch adminstators',
+  name: 'Fetch administrators',
   types: [ADMIN_TYPE],
   async executionHandler({
     instance,
