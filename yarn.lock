@@ -450,12 +450,15 @@
   dependencies:
     ajv "^6.12.0"
 
-"@jupiterone/integration-sdk@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@jupiterone/integration-sdk/-/integration-sdk-0.4.0.tgz#d64fc7f48e382ca45caf5212a14fdf336b3272fa"
-  integrity sha512-KxOZvU/Oz5+EGQLfJ9t9J9kvKIW2F1jjQghuYOMmMXM1Bm1pJigbKCSwp8IkdqrcfS1EpIVPNeLAJifkoNtQgg==
+"@jupiterone/integration-sdk@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@jupiterone/integration-sdk/-/integration-sdk-0.5.0.tgz#2dd5bbe3b151f90198e716558cf7890e98437af3"
+  integrity sha512-bB2FlLtxekYOe7WlzfeuNVyqOXWDb2ePkuu6vUtfC0iG0Po+E0GN3R3iPZu7v9abIX30/O8lnwtW/JuRBsWiGg==
   dependencies:
     "@jupiterone/data-model" "^0.2.0"
+    "@pollyjs/adapter-node-http" "^4.0.4"
+    "@pollyjs/core" "^4.0.4"
+    "@pollyjs/persister-fs" "^4.0.4"
     async-sema "^3.1.0"
     bunyan "^1.8.12"
     bunyan-format "^0.2.1"

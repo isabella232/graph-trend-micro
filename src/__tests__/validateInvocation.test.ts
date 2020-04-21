@@ -11,7 +11,9 @@ beforeEach(() => {
 test('rejects if apiKey is not present', async () => {
   fetchMock.mockResponse(JSON.stringify({ computers: [] }));
 
-  const context = createMockExecutionContext();
+  const context = createMockExecutionContext({
+    instanceConfig: {},
+  });
 
   await expect(validateInvocation(context)).rejects.toThrow(
     /Failed to authenticate/,
