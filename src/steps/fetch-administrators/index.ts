@@ -54,9 +54,9 @@ export function createAdministratorEntity(
  * to generate keys that match the min length
  * the data model requires
  */
-const API_KEY_ID_PREFIX = 'trend-micro-administator';
+const ADMIN_ID_PREFIX = 'trend-micro-administrator';
 function createAdministratorEntityIdentifier(
   administrator: DeepSecurityAdministrator,
 ): string {
-  return `${API_KEY_ID_PREFIX}:${administrator.ID}`;
+  return `${ADMIN_ID_PREFIX}:${administrator.ID}`;
 }
