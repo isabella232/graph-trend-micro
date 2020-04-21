@@ -8,5 +8,11 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- Collection of API Key entities
+- Collection of Administrator entities
+
 ### Changed
+
 - `instanceConfigFields.json` now specifies an `apiKey` config field.

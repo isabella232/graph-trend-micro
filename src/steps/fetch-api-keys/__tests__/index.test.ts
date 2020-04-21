@@ -1,4 +1,8 @@
-import { Recording, setupRecording, createStepContext } from 'test';
+import {
+  Recording,
+  setupRecording,
+  createMockStepExecutionContext,
+} from 'test';
 
 import step, { createApiKeyEntity } from '../index';
 import {
@@ -25,7 +29,7 @@ test('api key fetching', async () => {
   // and has no support for paging
   //
   // ref: https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas#operation/listApiKeys
-  const context = createStepContext();
+  const context = createMockStepExecutionContext();
   const provider = createDeepSecurityClient(context.instance);
 
   const results = await provider.listApiKeys();
@@ -93,7 +97,7 @@ test('api key entity conversion', async () => {
 });
 
 test('step data collection', async () => {
-  const context = createStepContext();
+  const context = createMockStepExecutionContext();
   await step.executionHandler(context);
 
   expect(context.jobState.collectedEntities).toHaveLength(3);
