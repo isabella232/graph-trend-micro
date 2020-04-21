@@ -1,15 +1,18 @@
-import { Polly, setupPolly, createStepContext } from 'test';
+import { Recording, setupRecording, createStepContext } from 'test';
 
 import step from '../index';
 
-let polly: Polly;
+let recording: Recording;
 
 afterEach(async () => {
-  await polly.stop();
+  await recording.stop();
 });
 
 test('should fetch api keys and generate entities from the results', async () => {
-  polly = setupPolly(__dirname, 'api-keys');
+  recording = setupRecording({
+    directory: __dirname,
+    name: 'api-keys',
+  });
 
   const context = createStepContext();
   await step.executionHandler(context);
