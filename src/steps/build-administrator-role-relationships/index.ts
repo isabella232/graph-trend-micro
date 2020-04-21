@@ -15,14 +15,11 @@ const step: IntegrationStep = {
   name: 'Build administrator role relationships',
   types: [],
   dependsOn: [ADMIN_STEP, ROLE_STEP],
-  async executionHandler({
-    instance,
-    jobState,
-  }: IntegrationStepExecutionContext) {
+  async executionHandler({ jobState }: IntegrationStepExecutionContext) {
     const roleIdMap = await createRoleIdMap(jobState);
 
     await jobState.iterateEntities({ _type: ADMIN_TYPE }, async (admin) => {
-      const role = roleIdMap.get(admin.roleID);
+      const role = roleIdMap.get(admin.roleID as number);
 
       if (role) {
         const relationship = createAdministratorToRoleRelationship(admin, role);
@@ -32,10 +29,13 @@ const step: IntegrationStep = {
   },
 };
 
-async function createRoleIdMap(jobState: JobState) {
+async function createRoleIdMap(
+  jobState: JobState,
+): Promise<Map<number, Entity>> {
   const roleIdMap = new Map<number, Entity>();
   await jobState.iterateEntities({ _type: ROLE_TYPE }, (role) => {
-    roleIdMap.set(role.ID, role);
+    // unfortunately need to cast because of EntityPropertyValue type
+    roleIdMap.set(role.ID as number, role);
   });
   return roleIdMap;
 }
