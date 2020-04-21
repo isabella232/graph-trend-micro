@@ -2,7 +2,7 @@
 // This is one of the few places where we want
 // to allow for the 'any' type to be used.
 //
-// We are trying to rewriting docs for providers.
+// We are trying to avoid rewriting docs for providers.
 //
 // Read the docs to get the shape of the object.
 // https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas
@@ -14,3 +14,7 @@
 import { Opaque } from 'type-fest';
 
 export type DeepSecurityApiKey = Opaque<any, 'DeepSecurityApiKey'>;
+export type DeepSecurityAdministrator = Opaque<
+  any,
+  'DeepSecurityAdministrator'
+>;
