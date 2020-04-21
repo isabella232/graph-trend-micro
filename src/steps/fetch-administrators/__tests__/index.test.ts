@@ -1,4 +1,8 @@
-import { Recording, setupRecording, createStepContext } from 'test';
+import {
+  Recording,
+  setupRecording,
+  createMockStepExecutionContext,
+} from 'test';
 
 import step, { createAdministratorEntity } from '../index';
 import {
@@ -20,7 +24,7 @@ afterEach(async () => {
 });
 
 test('administrator fetching', async () => {
-  const context = createStepContext();
+  const context = createMockStepExecutionContext();
   const provider = createDeepSecurityClient(context.instance);
 
   const results = await provider.listAdministrators();
@@ -137,7 +141,7 @@ test('administator entity conversion', async () => {
 });
 
 test('step data collection', async () => {
-  const context = createStepContext();
+  const context = createMockStepExecutionContext();
   await step.executionHandler(context);
 
   expect(context.jobState.collectedEntities).toHaveLength(2);
