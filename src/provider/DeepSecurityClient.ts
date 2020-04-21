@@ -2,7 +2,7 @@ import { retry } from '@lifeomic/attempt';
 import nodeFetch, { Request } from 'node-fetch';
 
 import { retryableRequestError, fatalRequestError } from './error';
-import { DeepSecurityApiKey } from './types';
+import { DeepSecurityApiKey, DeepSecurityAdministrator } from './types';
 
 const API_BASE_URL = 'https://app.deepsecurity.trendmicro.com/api';
 
@@ -52,6 +52,17 @@ export class DeepSecurityClient {
    */
   listApiKeys(): Promise<{ apiKeys: DeepSecurityApiKey[] }> {
     return this.fetch('/apikeys');
+  }
+
+  /**
+   * Lists _all_  administrators
+   *
+   * https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas#operation/listAdministrators
+   */
+  listAdministrators(): Promise<{
+    administrators: DeepSecurityAdministrator[];
+  }> {
+    return this.fetch('/administrators');
   }
 
   /**
