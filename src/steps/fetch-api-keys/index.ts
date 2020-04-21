@@ -25,7 +25,7 @@ const step: IntegrationStep = {
 
 export default step;
 
-function createApiKeyEntity(apiKey: DeepSecurityApiKey): Entity {
+export function createApiKeyEntity(apiKey: DeepSecurityApiKey): Entity {
   return createIntegrationEntity({
     entityData: {
       source: apiKey,
