@@ -130,6 +130,7 @@ test('administator entity conversion', async () => {
     name: 'Charlie Test',
     createdOn: 1587489647292,
     username: 'charlie.duong.test',
+    roleID: 2,
     _rawData: [
       {
         name: 'default',

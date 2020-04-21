@@ -10,10 +10,11 @@ import {
   DeepSecurityAdministrator,
 } from '../../provider';
 
-const ADMIN_TYPE = 'trend_micro_administrator';
+export const STEP_ID = 'fetch-administrators';
+export const ADMIN_TYPE = 'trend_micro_administrator';
 
 const step: IntegrationStep = {
-  id: 'fetch-administrators',
+  id: STEP_ID,
   name: 'Fetch administrators',
   types: [ADMIN_TYPE],
   async executionHandler({
@@ -41,6 +42,7 @@ export function createAdministratorEntity(
         _type: ADMIN_TYPE,
         _class: 'User',
 
+        roleID: administrator.roleID,
         // normalize property names to match data model
         name: administrator.fullName || administrator.username,
         createdOn: administrator.created,
