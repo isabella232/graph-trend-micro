@@ -10,10 +10,12 @@ import {
   DeepSecurityAdministrator,
 } from '../../provider';
 
+const ADMIN_TYPE = 'trend_micro_administrator';
+
 const step: IntegrationStep = {
-  id: 'fetch-api-keys',
-  name: 'Fetch API Keys',
-  types: ['trend_micro_administrator'],
+  id: 'fetch-administrators',
+  name: 'Fetch adminstators',
+  types: [ADMIN_TYPE],
   async executionHandler({
     instance,
     jobState,
@@ -36,7 +38,7 @@ export function createAdministratorEntity(
       source: administrator,
       assign: {
         _key: createAdministratorEntityIdentifier(administrator),
-        _type: 'trend_micro_administrator',
+        _type: ADMIN_TYPE,
         _class: 'User',
 
         // normalize property names to match data model
