@@ -81,6 +81,7 @@ test('administratorRole fetching', async () => {
 
 test('administator entity conversion', async () => {
   const role = {
+    ID: 4,
     name: 'New Role_2',
     description: '',
     urn: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role_2',
@@ -94,6 +95,7 @@ test('administator entity conversion', async () => {
 
   expect(createAdministratorRoleEntity(role)).toEqual({
     name: 'New Role_2',
+    ID: 4,
     description: '',
     _key: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role_2',
     _type: 'trend_micro_administrator_role',

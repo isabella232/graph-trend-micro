@@ -1,0 +1,75 @@
+[
+  {
+    "username": "charlie.duong@jupiterone.io",
+    "description": "",
+    "active": true,
+    "_key": "trend-micro-administrator:1",
+    "_type": "trend_micro_administrator",
+    "_class": [
+      "User"
+    ],
+    "roleID": 1,
+    "name": "charlie.duong@jupiterone.io",
+    "createdOn": 1586982455921,
+    "displayName": "charlie.duong@jupiterone.io"
+  },
+  {
+    "username": "charlie.duong.test",
+    "description": "Testing123",
+    "active": true,
+    "_key": "trend-micro-administrator:8",
+    "_type": "trend_micro_administrator",
+    "_class": [
+      "User"
+    ],
+    "roleID": 2,
+    "name": "Charlie Test",
+    "createdOn": 1587489647292,
+    "displayName": "Charlie Test"
+  },
+
+  {
+    "name": "Full Access",
+    "description": "",
+    "_key": "urn:tmds:identity:us-east-ds-1:78422:role/Full Access",
+    "_type": "trend_micro_administrator_role",
+    "_class": [
+      "AccessRole"
+    ],
+    "ID": 1,
+    "displayName": "Full Access"
+  },
+  {
+    "name": "Auditor",
+    "description": "",
+    "_key": "urn:tmds:identity:us-east-ds-1:78422:role/Auditor",
+    "_type": "trend_micro_administrator_role",
+    "_class": [
+      "AccessRole"
+    ],
+    "ID": 2,
+    "displayName": "Auditor"
+  },
+  {
+    "name": "New Role",
+    "description": "",
+    "_key": "urn:tmds:identity:us-east-ds-1:78422:role/New Role",
+    "_type": "trend_micro_administrator_role",
+    "_class": [
+      "AccessRole"
+    ],
+    "ID": 3,
+    "displayName": "New Role"
+  },
+  {
+    "name": "New Role_2",
+    "description": "",
+    "_key": "urn:tmds:identity:us-east-ds-1:78422:role/New Role_2",
+    "_type": "trend_micro_administrator_role",
+    "_class": [
+      "AccessRole"
+    ],
+    "ID": 4,
+    "displayName": "New Role_2"
+  }
+]
