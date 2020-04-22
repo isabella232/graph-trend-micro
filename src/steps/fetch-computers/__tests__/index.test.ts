@@ -7,7 +7,7 @@ import {
 import step, { createComputerEntity } from '../index';
 import {
   createDeepSecurityClient,
-  DeepSecurityApiKey,
+  DeepSecurityComputer,
 } from '../../../provider';
 
 let recording: Recording;
@@ -85,7 +85,7 @@ test('computer entity conversion', async () => {
     biosUUID: 'ec29a088-a562-cdad-48d9-d76b0e3385c4',
     hostGUID: '6BE38408-DA9E-4A03-1EB4-5CE824AD0C58',
     ID: 1,
-  } as DeepSecurityApiKey;
+  } as DeepSecurityComputer;
 
   expect(createComputerEntity(computer)).toEqual({
     _key: 'trend-micro-computer:1',
