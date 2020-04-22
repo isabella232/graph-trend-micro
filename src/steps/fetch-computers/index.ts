@@ -51,11 +51,11 @@ export function createComputerEntity(computer: DeepSecurityComputer): Entity {
  * to generate keys that match the min length
  * the data model requires
  */
-const API_KEY_ID_PREFIX = 'trend-micro-computer';
+const COMPUTER_ID_PREFIX = 'trend-micro-computer';
 function createComputerEntityIdentifier(
   computer: DeepSecurityComputer,
 ): string {
-  return `${API_KEY_ID_PREFIX}:${computer.ID}`;
+  return `${COMPUTER_ID_PREFIX}:${computer.ID}`;
 }
 
 /**
