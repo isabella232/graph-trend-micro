@@ -79,6 +79,7 @@ test('computer entity conversion', async () => {
     amazonSubnetID: 43,
     name: 'subnet-ed0c7888',
     displayName: 'subnet-ed0c7888',
+    ID: 76,
     _rawData: [
       {
         name: 'default',

@@ -7,10 +7,11 @@ import {
 
 import { createDeepSecurityClient, DeepSecurityComputer } from '../../provider';
 
-const COMPUTER_TYPE = 'trend_micro_computer';
+export const STEP_ID = 'fetch-computers';
+export const COMPUTER_TYPE = 'trend_micro_computer';
 
 const step: IntegrationStep = {
-  id: 'fetch-computers',
+  id: STEP_ID,
   name: 'Fetch computers',
   types: [COMPUTER_TYPE],
   async executionHandler({
@@ -41,6 +42,7 @@ export function createComputerEntity(computer: DeepSecurityComputer): Entity {
         name: computer.displayName || computer.hostName,
         hostname: computer.hostName,
         platform: extractPlatform(computer.platform),
+        groupID: computer.groupID,
       },
     },
   });

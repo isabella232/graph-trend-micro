@@ -10,10 +10,11 @@ import {
   DeepSecurityComputerGroup,
 } from '../../provider';
 
-const COMPUTER_GROUP_TYPE = 'trend_micro_computer_group';
+export const STEP_ID = 'fetch-computer-groups';
+export const COMPUTER_GROUP_TYPE = 'trend_micro_computer_group';
 
 const step: IntegrationStep = {
-  id: 'fetch-computer-groups',
+  id: STEP_ID,
   name: 'Fetch computer groups',
   types: [COMPUTER_GROUP_TYPE],
   async executionHandler({
@@ -56,6 +57,7 @@ export function createComputerGroupEntity(
         cloudType: group.cloudType,
         amazonSubnetID: group.amazonSubnetID,
         type: group.type,
+        ID: group.ID,
       },
     },
   });

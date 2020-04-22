@@ -84,6 +84,7 @@ test('computer entity conversion', async () => {
       'F9:51:AE:21:1F:7E:08:91:D2:5A:3D:4D:0D:17:F3:53:E9:EA:4E:28',
     biosUUID: 'ec29a088-a562-cdad-48d9-d76b0e3385c4',
     hostGUID: '6BE38408-DA9E-4A03-1EB4-5CE824AD0C58',
+    groupID: 25,
     ID: 1,
   } as DeepSecurityComputer;
 
@@ -95,6 +96,7 @@ test('computer entity conversion', async () => {
     displayName: 'ec2-54-187-35-33.us-west-2.compute.amazonaws.com',
     hostname: 'ec2-54-187-35-33.us-west-2.compute.amazonaws.com',
     platform: 'linux',
+    groupID: 25,
     description:
       "This computer is a demonstration of Deep Security's capabilities. Open a browser to http://ec2-54-187-35-33.us-west-2.compute.amazonaws.com for more information.",
     _rawData: [
