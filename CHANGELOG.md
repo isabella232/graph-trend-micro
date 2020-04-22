@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Added
 
+- Collection of relationships between Computers and Computer Groups
 - Collection of relationships between Administrators and Roles
 - Collection of Role entities
 - Collection of Computer entities
