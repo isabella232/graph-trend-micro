@@ -22,3 +22,4 @@ export type DeepSecurityAdministratorRole = Opaque<
   any,
   'DeepSecurityAdministratorRole'
 >;
+export type DeepSecurityComputer = Opaque<any, 'DeepSecurityComputer'>;

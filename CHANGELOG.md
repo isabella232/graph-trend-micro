@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Added
 
+- Collection of Computer entities
 - Collection of API Key entities
 - Collection of Administrator entities
 
