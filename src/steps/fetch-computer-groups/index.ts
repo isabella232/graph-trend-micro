@@ -39,6 +39,18 @@ export function createComputerGroupEntity(
       assign: {
         _key: createComputerGroupEntityIdentifier(group),
         _type: COMPUTER_GROUP_TYPE,
+        // NOTE: Some of the entities collected through this may seem
+        // like they really should be part of the Network class
+        // since they contain subnet ids
+        // but there isn't enough information returned to actually
+        // fulfill the requirements to fit that in the data model.
+        //
+        // Also not all computer groups returned are subnets.
+        // An AWS account group may be returned from the API
+        // if an AWS Connector was setup.
+        //
+        // So for now we will consider computerGroups as
+        // generic Group entities.
         _class: 'Group',
         parentGroupID: group.parentGroupID,
         cloudType: group.cloudType,
