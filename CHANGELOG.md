@@ -13,6 +13,7 @@ and this project adheres to
 - Collection of relationships between Administrators and Roles
 - Collection of Role entities
 - Collection of Computer entities
+- Collection of Computer Group entities
 - Collection of API Key entities
 - Collection of Administrator entities
 

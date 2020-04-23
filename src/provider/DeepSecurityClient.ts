@@ -7,6 +7,7 @@ import {
   DeepSecurityAdministrator,
   DeepSecurityAdministratorRole,
   DeepSecurityComputer,
+  DeepSecurityComputerGroup,
 } from './types';
 
 const API_BASE_URL = 'https://app.deepsecurity.trendmicro.com/api';
@@ -48,6 +49,15 @@ export class DeepSecurityClient {
    */
   listComputers(): Promise<{ computers: DeepSecurityComputer }> {
     return this.fetch('/computers');
+  }
+
+  /**
+   * Lists _all_ computer groups
+   *
+   * ref: https://automation.deepsecurity.trendmicro.com/article/dsaas/api-reference?platform=dsaas#operation/listComputerGroups
+   */
+  listComputerGroups(): Promise<{ computerGroups: DeepSecurityComputerGroup }> {
+    return this.fetch('/computergroups');
   }
 
   /**
