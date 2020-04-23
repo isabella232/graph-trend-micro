@@ -13,7 +13,7 @@ import { STEP_ID as ROLE_STEP, ROLE_TYPE } from '../fetch-administrator-roles';
 const step: IntegrationStep = {
   id: 'build-administrator-role-relationships',
   name: 'Build administrator role relationships',
-  types: [],
+  types: ['trend_micro_administrator_assigned_role'],
   dependsOn: [ADMIN_STEP, ROLE_STEP],
   async executionHandler({ jobState }: IntegrationStepExecutionContext) {
     const roleIdMap = await createRoleIdMap(jobState);
