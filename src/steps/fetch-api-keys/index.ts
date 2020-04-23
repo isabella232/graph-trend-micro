@@ -39,6 +39,7 @@ export function createApiKeyEntity(apiKey: DeepSecurityApiKey): Entity {
         // normalize property names to match data model
         name: apiKey.keyName,
         createdOn: apiKey.created,
+        id: apiKey.ID.toString(),
       },
     },
   });

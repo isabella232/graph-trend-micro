@@ -43,6 +43,7 @@ export function createComputerEntity(computer: DeepSecurityComputer): Entity {
         hostname: computer.hostName,
         platform: extractPlatform(computer.platform),
         groupId: computer.groupID.toString(),
+        id: computer.ID.toString(),
       },
     },
   });
