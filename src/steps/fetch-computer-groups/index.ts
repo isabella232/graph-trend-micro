@@ -53,11 +53,13 @@ export function createComputerGroupEntity(
         // So for now we will consider computerGroups as
         // generic Group entities.
         _class: 'Group',
-        parentGroupID: group.parentGroupID,
         cloudType: group.cloudType,
-        amazonSubnetID: group.amazonSubnetID,
         type: group.type,
-        ID: group.ID,
+
+        // stringify to match data model
+        id: group.ID.toString(),
+        amazonSubnetId: group.amazonSubnetID?.toString?.(),
+        parentGroupId: group.parentGroupID?.toString?.(),
       },
     },
   });

@@ -95,7 +95,7 @@ test('administator entity conversion', async () => {
 
   expect(createAdministratorRoleEntity(role)).toEqual({
     name: 'New Role_2',
-    ID: 4,
+    id: '4',
     description: '',
     _key: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role_2',
     _type: 'trend_micro_administrator_role',

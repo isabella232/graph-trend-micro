@@ -8,7 +8,7 @@
     "_class": [
       "User"
     ],
-    "roleID": 1,
+    "roleId": "1",
     "name": "charlie.duong@jupiterone.io",
     "createdOn": 1586982455921,
     "displayName": "charlie.duong@jupiterone.io"
@@ -22,7 +22,7 @@
     "_class": [
       "User"
     ],
-    "roleID": 2,
+    "roleId": "2",
     "name": "Charlie Test",
     "createdOn": 1587489647292,
     "displayName": "Charlie Test"
@@ -36,7 +36,7 @@
     "_class": [
       "AccessRole"
     ],
-    "ID": 1,
+    "id": "1",
     "displayName": "Full Access"
   },
   {
@@ -47,7 +47,7 @@
     "_class": [
       "AccessRole"
     ],
-    "ID": 2,
+    "id": "2",
     "displayName": "Auditor"
   },
   {
@@ -58,7 +58,7 @@
     "_class": [
       "AccessRole"
     ],
-    "ID": 3,
+    "id": "3",
     "displayName": "New Role"
   },
   {
@@ -69,7 +69,7 @@
     "_class": [
       "AccessRole"
     ],
-    "ID": 4,
+    "id": "4",
     "displayName": "New Role_2"
   }
 ]

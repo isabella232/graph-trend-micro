@@ -41,7 +41,7 @@ export function createAdministratorRoleEntity(
         _key: role.urn,
         _type: ROLE_TYPE,
         _class: 'AccessRole',
-        ID: role.ID,
+        id: role.ID.toString(), // must cast to string to match data model
         // normalize property names to match data model
         name: role.name || role.urn,
       },

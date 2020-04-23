@@ -8,7 +8,7 @@
     "_class": ["Host"],
     "name": "ec2-54-187-35-33.us-west-2.compute.amazonaws.com",
     "hostname": "ec2-54-187-35-33.us-west-2.compute.amazonaws.com",
-    "groupID": 0
+    "groupId": "0"
   },
   {
     "displayName": "i-075776bd5b0b322aa",
@@ -19,7 +19,7 @@
     "_class": ["Host"],
     "name": "i-075776bd5b0b322aa",
     "hostname": "172.31.121.120",
-    "groupID": 79
+    "groupId": "79"
   },
   {
     "displayName": "i-0dca1d41741a0a411",
@@ -30,7 +30,7 @@
     "_class": ["Host"],
     "name": "i-0dca1d41741a0a411",
     "hostname": "172.31.211.111",
-    "groupID": 79
+    "groupId": "79"
   },
   {
     "name": "cduong - 697977203433",
@@ -38,7 +38,7 @@
     "_type": "trend_micro_computer_group",
     "_class": ["Group"],
     "type": "aws-account",
-    "ID": 1,
+    "id": "1",
     "displayName": "cduong - 697977203433"
   },
   {
@@ -46,10 +46,10 @@
     "_key": "trend-micro-computer-group:2",
     "_type": "trend_micro_computer_group",
     "_class": ["Group"],
-    "parentGroupID": 1,
+    "parentGroupId": "1",
     "cloudType": "amazon",
     "type": "aws-region",
-    "ID": "2",
+    "id": "2",
     "displayName": "EU (Stockholm)"
   },
   {
@@ -57,11 +57,11 @@
     "_key": "trend-micro-computer-group:78",
     "_type": "trend_micro_computer_group",
     "_class": ["Group"],
-    "parentGroupID": 74,
+    "parentGroupId": "74",
     "cloudType": "amazon",
-    "amazonSubnetID": 45,
+    "amazonSubnetId": "45",
     "type": "aws-subnet",
-    "ID": 78,
+    "id": "78",
     "displayName": "subnet-c6ae24b1"
   },
   {
@@ -69,11 +69,11 @@
     "_key": "trend-micro-computer-group:79",
     "_type": "trend_micro_computer_group",
     "_class": ["Group"],
-    "parentGroupID": 66,
+    "parentGroupId": "66",
     "cloudType": "amazon",
-    "amazonSubnetID": 46,
+    "amazonSubnetId": "46",
     "type": "aws-subnet",
-    "ID": 79,
+    "id": "79",
     "displayName": "deepsecurity (subnet-09eb438f49fbf5900)"
   }
 ]

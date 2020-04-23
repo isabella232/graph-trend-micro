@@ -24,7 +24,7 @@ const step: IntegrationStep = {
     await jobState.iterateEntities(
       { _type: COMPUTER_TYPE },
       async (computer) => {
-        const group = groupIdMap.get(computer.groupID as number);
+        const group = groupIdMap.get(computer.groupId as string);
 
         if (group) {
           const relationship = createComputerGroupRelationship(computer, group);
@@ -37,11 +37,11 @@ const step: IntegrationStep = {
 
 async function createComputerGroupIdMap(
   jobState: JobState,
-): Promise<Map<number, Entity>> {
-  const groupIdMap = new Map<number, Entity>();
+): Promise<Map<string, Entity>> {
+  const groupIdMap = new Map<string, Entity>();
   await jobState.iterateEntities({ _type: COMPUTER_GROUP_TYPE }, (group) => {
     // unfortunately need to cast because of EntityPropertyValue type
-    groupIdMap.set(group.ID as number, group);
+    groupIdMap.set(group.id as string, group);
   });
   return groupIdMap;
 }

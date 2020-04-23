@@ -42,7 +42,7 @@ export function createComputerEntity(computer: DeepSecurityComputer): Entity {
         name: computer.displayName || computer.hostName,
         hostname: computer.hostName,
         platform: extractPlatform(computer.platform),
-        groupID: computer.groupID,
+        groupId: computer.groupID.toString(),
       },
     },
   });
