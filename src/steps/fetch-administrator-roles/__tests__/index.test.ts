@@ -41,6 +41,7 @@ test('administratorRole fetching', async () => {
         allPolicies: true,
         allowUserInterface: true,
         allowWebService: true,
+        ID: 1,
       }),
       expect.objectContaining({
         name: 'Auditor',
@@ -52,6 +53,7 @@ test('administratorRole fetching', async () => {
         allPolicies: true,
         allowUserInterface: true,
         allowWebService: true,
+        ID: 2,
       }),
       expect.objectContaining({
         name: 'New Role',
@@ -63,6 +65,7 @@ test('administratorRole fetching', async () => {
         allPolicies: true,
         allowUserInterface: true,
         allowWebService: false,
+        ID: 3,
       }),
       expect.objectContaining({
         name: 'New Role_2',
@@ -74,12 +77,13 @@ test('administratorRole fetching', async () => {
         allPolicies: true,
         allowUserInterface: true,
         allowWebService: false,
+        ID: 4,
       }),
     ]),
   });
 });
 
-test('administator entity conversion', async () => {
+test('administator role entity conversion', async () => {
   const role = {
     ID: 4,
     name: 'New Role_2',
@@ -95,9 +99,10 @@ test('administator entity conversion', async () => {
 
   expect(createAdministratorRoleEntity(role)).toEqual({
     name: 'New Role_2',
-    id: '4',
+    id: 'trend-micro-administrator-role:4',
     description: '',
-    _key: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role_2',
+    urn: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role_2',
+    _key: 'trend-micro-administrator-role:4',
     _type: 'trend_micro_administrator_role',
     _class: ['AccessRole'],
     createdOn: undefined,
@@ -115,16 +120,16 @@ test('step data collection', async () => {
 
   expect(context.jobState.collectedEntities).toEqual([
     expect.objectContaining({
-      _key: 'urn:tmds:identity:us-east-ds-1:78422:role/Full Access',
+      _key: 'trend-micro-administrator-role:1',
     }),
     expect.objectContaining({
-      _key: 'urn:tmds:identity:us-east-ds-1:78422:role/Auditor',
+      _key: 'trend-micro-administrator-role:2',
     }),
     expect.objectContaining({
-      _key: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role',
+      _key: 'trend-micro-administrator-role:3',
     }),
     expect.objectContaining({
-      _key: 'urn:tmds:identity:us-east-ds-1:78422:role/New Role_2',
+      _key: 'trend-micro-administrator-role:4',
     }),
   ]);
 });

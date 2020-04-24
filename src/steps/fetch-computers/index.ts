@@ -6,6 +6,7 @@ import {
 } from '@jupiterone/integration-sdk';
 
 import { createDeepSecurityClient, DeepSecurityComputer } from '../../provider';
+import { createComputerGroupEntityIdentifier } from '../fetch-computer-groups';
 
 export const STEP_ID = 'fetch-computers';
 export const COMPUTER_TYPE = 'trend_micro_computer';
@@ -29,21 +30,22 @@ const step: IntegrationStep = {
 export default step;
 
 export function createComputerEntity(computer: DeepSecurityComputer): Entity {
+  const id = createComputerEntityIdentifier(computer.ID);
   return createIntegrationEntity({
     entityData: {
       source: computer,
       assign: {
-        _key: createComputerEntityIdentifier(computer),
+        _key: id,
         _type: COMPUTER_TYPE,
         _class: 'Host',
 
         // normalize property names to match data model
+        id,
         createdOn: computer.created,
         name: computer.displayName || computer.hostName,
         hostname: computer.hostName,
         platform: extractPlatform(computer.platform),
-        groupId: computer.groupID.toString(),
-        id: computer.ID.toString(),
+        groupId: createComputerGroupEntityIdentifier(computer.groupID),
       },
     },
   });
@@ -55,10 +57,8 @@ export function createComputerEntity(computer: DeepSecurityComputer): Entity {
  * the data model requires
  */
 const COMPUTER_ID_PREFIX = 'trend-micro-computer';
-function createComputerEntityIdentifier(
-  computer: DeepSecurityComputer,
-): string {
-  return `${COMPUTER_ID_PREFIX}:${computer.ID}`;
+export function createComputerEntityIdentifier(id: string): string {
+  return `${COMPUTER_ID_PREFIX}:${id}`;
 }
 
 /**

@@ -75,11 +75,11 @@ test('computer entity conversion', async () => {
     _class: ['Group'],
     type: 'aws-subnet',
     cloudType: 'amazon',
-    parentGroupId: '74',
-    amazonSubnetId: '43',
+    parentGroupId: 'trend-micro-computer-group:74',
+    amazonSubnetId: 'trend-micro-computer-group:43',
     name: 'subnet-ed0c7888',
     displayName: 'subnet-ed0c7888',
-    id: '76',
+    id: 'trend-micro-computer-group:76',
     _rawData: [
       {
         name: 'default',

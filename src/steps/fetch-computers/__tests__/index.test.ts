@@ -96,8 +96,8 @@ test('computer entity conversion', async () => {
     displayName: 'ec2-54-187-35-33.us-west-2.compute.amazonaws.com',
     hostname: 'ec2-54-187-35-33.us-west-2.compute.amazonaws.com',
     platform: 'linux',
-    id: '1',
-    groupId: '25',
+    id: 'trend-micro-computer:1',
+    groupId: 'trend-micro-computer-group:25',
     description:
       "This computer is a demonstration of Deep Security's capabilities. Open a browser to http://ec2-54-187-35-33.us-west-2.compute.amazonaws.com for more information.",
     _rawData: [

@@ -86,7 +86,7 @@ test('api key entity conversion', async () => {
     _class: ['Key'],
     name: 'jupiterone-test',
     createdOn: 1586982900004,
-    id: '2',
+    id: 'trend-micro-api-key:2',
     _rawData: [
       {
         name: 'default',
