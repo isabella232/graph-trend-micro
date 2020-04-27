@@ -60,12 +60,10 @@ export function createComputerGroupEntity(
 
         // stringify to match data model
         id,
-        amazonSubnetId: group.amazonSubnetID
-          ? createComputerGroupEntityIdentifier(group.amazonSubnetID)
-          : undefined,
-        parentGroupId: group.parentGroupID
-          ? createComputerGroupEntityIdentifier(group.parentGroupID)
-          : undefined,
+        amazonSubnetId: createComputerGroupEntityIdentifier(
+          group.amazonSubnetID,
+        ),
+        parentGroupId: createComputerGroupEntityIdentifier(group.parentGroupID),
       },
     },
   });
@@ -77,6 +75,6 @@ export function createComputerGroupEntity(
  * the data model requires
  */
 const COMPUTER_GROUP_ID_PREFIX = 'trend-micro-computer-group';
-export function createComputerGroupEntityIdentifier(id: string): string {
-  return `${COMPUTER_GROUP_ID_PREFIX}:${id}`;
+export function createComputerGroupEntityIdentifier(id?: string): string {
+  return id ? `${COMPUTER_GROUP_ID_PREFIX}:${id}` : undefined;
 }
