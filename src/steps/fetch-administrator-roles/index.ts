@@ -34,17 +34,29 @@ export default step;
 export function createAdministratorRoleEntity(
   role: DeepSecurityAdministratorRole,
 ): Entity {
+  const id = createAdministratorRoleEntityIdentifier(role.ID);
   return createIntegrationEntity({
     entityData: {
       source: role,
       assign: {
-        _key: role.urn,
+        _key: id,
         _type: ROLE_TYPE,
         _class: 'AccessRole',
-        ID: role.ID,
+        id,
+        urn: role.urn,
         // normalize property names to match data model
         name: role.name || role.urn,
       },
     },
   });
+}
+
+/**
+ * DO NOT change this constant. IDs are not long enough
+ * to generate keys that match the min length
+ * the data model requires
+ */
+const ADMIN_ROLE_ID_PREFIX = 'trend-micro-administrator-role';
+export function createAdministratorRoleEntityIdentifier(id: number): string {
+  return `${ADMIN_ROLE_ID_PREFIX}:${id}`;
 }

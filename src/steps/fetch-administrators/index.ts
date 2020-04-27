@@ -38,11 +38,11 @@ export function createAdministratorEntity(
     entityData: {
       source: administrator,
       assign: {
-        _key: createAdministratorEntityIdentifier(administrator),
+        _key: createAdministratorEntityIdentifier(administrator.ID),
         _type: ADMIN_TYPE,
         _class: 'User',
 
-        roleID: administrator.roleID,
+        roleId: administrator.roleID,
         // normalize property names to match data model
         name: administrator.fullName || administrator.username,
         createdOn: administrator.created,
@@ -57,8 +57,6 @@ export function createAdministratorEntity(
  * the data model requires
  */
 const ADMIN_ID_PREFIX = 'trend-micro-administrator';
-function createAdministratorEntityIdentifier(
-  administrator: DeepSecurityAdministrator,
-): string {
-  return `${ADMIN_ID_PREFIX}:${administrator.ID}`;
+function createAdministratorEntityIdentifier(id: string): string {
+  return `${ADMIN_ID_PREFIX}:${id}`;
 }

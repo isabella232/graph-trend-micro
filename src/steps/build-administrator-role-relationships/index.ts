@@ -19,7 +19,7 @@ const step: IntegrationStep = {
     const roleIdMap = await createRoleIdMap(jobState);
 
     await jobState.iterateEntities({ _type: ADMIN_TYPE }, async (admin) => {
-      const role = roleIdMap.get(admin.roleID as number);
+      const role = roleIdMap.get(admin.roleId as string);
 
       if (role) {
         const relationship = createAdministratorToRoleRelationship(admin, role);
@@ -31,11 +31,11 @@ const step: IntegrationStep = {
 
 async function createRoleIdMap(
   jobState: JobState,
-): Promise<Map<number, Entity>> {
-  const roleIdMap = new Map<number, Entity>();
+): Promise<Map<string, Entity>> {
+  const roleIdMap = new Map<string, Entity>();
   await jobState.iterateEntities({ _type: ROLE_TYPE }, (role) => {
     // unfortunately need to cast because of EntityPropertyValue type
-    roleIdMap.set(role.ID as number, role);
+    roleIdMap.set(role.id as string, role);
   });
   return roleIdMap;
 }

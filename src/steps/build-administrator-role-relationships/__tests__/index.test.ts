@@ -14,19 +14,19 @@ test('step data collection', async () => {
   expect(context.jobState.collectedRelationships).toEqual([
     expect.objectContaining({
       _key:
-        'trend-micro-administrator:1|assigned|urn:tmds:identity:us-east-ds-1:78422:role/Full Access',
+        'trend-micro-administrator:1|assigned|trend-micro-administrator-role:1',
       _type: 'trend_micro_administrator_assigned_role',
       _class: 'ASSIGNED',
       _fromEntityKey: 'trend-micro-administrator:1',
-      _toEntityKey: 'urn:tmds:identity:us-east-ds-1:78422:role/Full Access',
+      _toEntityKey: 'trend-micro-administrator-role:1',
     }),
     expect.objectContaining({
       _key:
-        'trend-micro-administrator:8|assigned|urn:tmds:identity:us-east-ds-1:78422:role/Auditor',
+        'trend-micro-administrator:8|assigned|trend-micro-administrator-role:2',
       _type: 'trend_micro_administrator_assigned_role',
       _class: 'ASSIGNED',
       _fromEntityKey: 'trend-micro-administrator:8',
-      _toEntityKey: 'urn:tmds:identity:us-east-ds-1:78422:role/Auditor',
+      _toEntityKey: 'trend-micro-administrator-role:2',
     }),
   ]);
 });

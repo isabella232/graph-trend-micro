@@ -28,15 +28,17 @@ const step: IntegrationStep = {
 export default step;
 
 export function createApiKeyEntity(apiKey: DeepSecurityApiKey): Entity {
+  const id = createApiKeyEntityIdentifier(apiKey.ID);
   return createIntegrationEntity({
     entityData: {
       source: apiKey,
       assign: {
-        _key: createApiKeyEntityIdentifier(apiKey),
+        _key: id,
         _type: API_KEY_TYPE,
         _class: 'Key',
 
         // normalize property names to match data model
+        id,
         name: apiKey.keyName,
         createdOn: apiKey.created,
       },
@@ -50,6 +52,6 @@ export function createApiKeyEntity(apiKey: DeepSecurityApiKey): Entity {
  * the data model requires
  */
 const API_KEY_ID_PREFIX = 'trend-micro-api-key';
-function createApiKeyEntityIdentifier(apiKey: DeepSecurityApiKey): string {
-  return `${API_KEY_ID_PREFIX}:${apiKey.ID}`;
+function createApiKeyEntityIdentifier(id: string): string {
+  return `${API_KEY_ID_PREFIX}:${id}`;
 }

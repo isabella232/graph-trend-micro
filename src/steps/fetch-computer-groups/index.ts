@@ -34,11 +34,13 @@ export default step;
 export function createComputerGroupEntity(
   group: DeepSecurityComputerGroup,
 ): Entity {
+  const id = createComputerGroupEntityIdentifier(group.ID);
+
   return createIntegrationEntity({
     entityData: {
       source: group,
       assign: {
-        _key: createComputerGroupEntityIdentifier(group),
+        _key: id,
         _type: COMPUTER_GROUP_TYPE,
         // NOTE: Some of the entities collected through this may seem
         // like they really should be part of the Network class
@@ -53,11 +55,15 @@ export function createComputerGroupEntity(
         // So for now we will consider computerGroups as
         // generic Group entities.
         _class: 'Group',
-        parentGroupID: group.parentGroupID,
         cloudType: group.cloudType,
-        amazonSubnetID: group.amazonSubnetID,
         type: group.type,
-        ID: group.ID,
+
+        // stringify to match data model
+        id,
+        amazonSubnetId: createComputerGroupEntityIdentifier(
+          group.amazonSubnetID,
+        ),
+        parentGroupId: createComputerGroupEntityIdentifier(group.parentGroupID),
       },
     },
   });
@@ -69,8 +75,6 @@ export function createComputerGroupEntity(
  * the data model requires
  */
 const COMPUTER_GROUP_ID_PREFIX = 'trend-micro-computer-group';
-function createComputerGroupEntityIdentifier(
-  group: DeepSecurityComputerGroup,
-): string {
-  return `${COMPUTER_GROUP_ID_PREFIX}:${group.ID}`;
+export function createComputerGroupEntityIdentifier(id?: string): string {
+  return id ? `${COMPUTER_GROUP_ID_PREFIX}:${id}` : undefined;
 }
