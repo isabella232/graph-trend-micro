@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "A graph conversion tool for https://trendmicro.com",
   "license": "MPL-2.0",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "j1-integration collect",
     "graph": "j1-integration visualize",
