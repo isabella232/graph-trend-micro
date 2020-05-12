@@ -1,6 +1,6 @@
 {
   "name": "@jupiterone/graph-trend-micro",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "A graph conversion tool for https://trendmicro.com",
   "license": "MPL-2.0",
   "main": "dist/index.js",
