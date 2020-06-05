@@ -2,13 +2,14 @@ import {
   Recording,
   setupRecording,
   createMockStepExecutionContext,
-} from 'test';
+} from '../../../../test';
 
 import step, { createAdministratorEntity } from '../index';
 import {
   createDeepSecurityClient,
   DeepSecurityAdministrator,
 } from '../../../provider';
+import { TrendMicroIntegrationConfig } from '../../../types';
 
 let recording: Recording;
 
@@ -24,7 +25,11 @@ afterEach(async () => {
 });
 
 test('administrator fetching', async () => {
-  const context = createMockStepExecutionContext();
+  const context = createMockStepExecutionContext<TrendMicroIntegrationConfig>({
+    instanceConfig: {
+      apiKey: 'apiKey',
+    },
+  });
   const provider = createDeepSecurityClient(context.instance);
 
   const results = await provider.listAdministrators();
@@ -142,7 +147,11 @@ test('administator entity conversion', async () => {
 });
 
 test('step data collection', async () => {
-  const context = createMockStepExecutionContext();
+  const context = createMockStepExecutionContext<TrendMicroIntegrationConfig>({
+    instanceConfig: {
+      apiKey: 'apiKey',
+    },
+  });
   await step.executionHandler(context);
 
   expect(context.jobState.collectedEntities).toHaveLength(2);

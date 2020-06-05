@@ -1,24 +1,21 @@
 import {
   Entity,
   IntegrationStep,
-  IntegrationStepExecutionContext,
   createIntegrationEntity,
-} from '@jupiterone/integration-sdk';
+} from '@jupiterone/integration-sdk-core';
 
 import { createDeepSecurityClient, DeepSecurityComputer } from '../../provider';
 import { createComputerGroupEntityIdentifier } from '../fetch-computer-groups';
+import { TrendMicroIntegrationConfig } from '../../types';
 
 export const STEP_ID = 'fetch-computers';
 export const COMPUTER_TYPE = 'trend_micro_computer';
 
-const step: IntegrationStep = {
+const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: STEP_ID,
   name: 'Fetch computers',
   types: [COMPUTER_TYPE],
-  async executionHandler({
-    instance,
-    jobState,
-  }: IntegrationStepExecutionContext) {
+  async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 
     const { computers } = await client.listComputers();
@@ -68,6 +65,12 @@ export function createComputerEntityIdentifier(id: string): string {
  */
 const PLATFORM_REGEX = /(darwin|linux|unix|windows|android|ios|embedded)/i;
 function extractPlatform(platform: string): string {
-  const [match] = platform.match(PLATFORM_REGEX);
+  const regexResult = platform.match(PLATFORM_REGEX);
+  let match: string | undefined = undefined;
+
+  if (regexResult) {
+    match = regexResult[0];
+  }
+
   return match ? match.toLowerCase() : 'other';
 }
