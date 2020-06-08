@@ -1,5 +1,6 @@
-import { IntegrationInstance } from '@jupiterone/integration-sdk';
+import { IntegrationInstance } from '@jupiterone/integration-sdk-core';
 import { DeepSecurityClient } from './DeepSecurityClient';
+import { TrendMicroIntegrationConfig } from '../types';
 
 export * from './types';
 
@@ -8,7 +9,7 @@ export * from './types';
  * api key.
  */
 export function createDeepSecurityClient(
-  instance: IntegrationInstance,
+  instance: IntegrationInstance<TrendMicroIntegrationConfig>,
 ): DeepSecurityClient {
   const apiKey = instance.config?.apiKey;
 

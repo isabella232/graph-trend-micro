@@ -2,13 +2,14 @@ import {
   Recording,
   setupRecording,
   createMockStepExecutionContext,
-} from 'test';
+} from '../../../../test';
 
 import step, { createComputerGroupEntity } from '../index';
 import {
   createDeepSecurityClient,
   DeepSecurityComputerGroup,
 } from '../../../provider';
+import { TrendMicroIntegrationConfig } from '../../../types';
 
 let recording: Recording;
 
@@ -24,7 +25,11 @@ afterEach(async () => {
 });
 
 test('computer group fetching', async () => {
-  const context = createMockStepExecutionContext();
+  const context = createMockStepExecutionContext<TrendMicroIntegrationConfig>({
+    instanceConfig: {
+      apiKey: 'apiKey',
+    },
+  });
   const provider = createDeepSecurityClient(context.instance);
 
   const results = await provider.listComputerGroups();
@@ -90,7 +95,11 @@ test('computer entity conversion', async () => {
 });
 
 test('step data collection', async () => {
-  const context = createMockStepExecutionContext();
+  const context = createMockStepExecutionContext<TrendMicroIntegrationConfig>({
+    instanceConfig: {
+      apiKey: 'apiKey',
+    },
+  });
   await step.executionHandler(context);
 
   const client = createDeepSecurityClient(context.instance);

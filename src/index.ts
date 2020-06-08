@@ -1,4 +1,4 @@
-import { IntegrationInvocationConfig } from '@jupiterone/integration-sdk';
+import { IntegrationInvocationConfig } from '@jupiterone/integration-sdk-core';
 
 import instanceConfigFields from './instanceConfigFields';
 import validateInvocation from './validateInvocation';
@@ -10,8 +10,9 @@ import fetchAdministratorRoles from './steps/fetch-administrator-roles';
 import fetchApiKeys from './steps/fetch-api-keys';
 import fetchComputers from './steps/fetch-computers';
 import fetchComputerGroups from './steps/fetch-computer-groups';
+import { TrendMicroIntegrationConfig } from './types';
 
-export const invocationConfig: IntegrationInvocationConfig = {
+export const invocationConfig: IntegrationInvocationConfig<TrendMicroIntegrationConfig> = {
   instanceConfigFields,
   validateInvocation,
   integrationSteps: [

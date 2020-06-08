@@ -1,22 +1,19 @@
 import {
   Entity,
   IntegrationStep,
-  IntegrationStepExecutionContext,
   createIntegrationEntity,
-} from '@jupiterone/integration-sdk';
+} from '@jupiterone/integration-sdk-core';
 
 import { createDeepSecurityClient, DeepSecurityApiKey } from '../../provider';
+import { TrendMicroIntegrationConfig } from '../../types';
 
 const API_KEY_TYPE = 'trend_micro_api_key';
 
-const step: IntegrationStep = {
+const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: 'fetch-api-keys',
   name: 'Fetch API Keys',
   types: [API_KEY_TYPE],
-  async executionHandler({
-    instance,
-    jobState,
-  }: IntegrationStepExecutionContext) {
+  async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 
     const { apiKeys } = await client.listApiKeys();

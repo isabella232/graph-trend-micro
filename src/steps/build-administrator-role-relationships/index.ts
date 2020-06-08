@@ -5,7 +5,7 @@ import {
   IntegrationStep,
   IntegrationStepExecutionContext,
   createIntegrationRelationship,
-} from '@jupiterone/integration-sdk';
+} from '@jupiterone/integration-sdk-core';
 
 import { STEP_ID as ADMIN_STEP, ADMIN_TYPE } from '../fetch-administrators';
 import { STEP_ID as ROLE_STEP, ROLE_TYPE } from '../fetch-administrator-roles';

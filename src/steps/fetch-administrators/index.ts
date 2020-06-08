@@ -1,26 +1,23 @@
 import {
   Entity,
   IntegrationStep,
-  IntegrationStepExecutionContext,
   createIntegrationEntity,
-} from '@jupiterone/integration-sdk';
+} from '@jupiterone/integration-sdk-core';
 
 import {
   createDeepSecurityClient,
   DeepSecurityAdministrator,
 } from '../../provider';
+import { TrendMicroIntegrationConfig } from '../../types';
 
 export const STEP_ID = 'fetch-administrators';
 export const ADMIN_TYPE = 'trend_micro_administrator';
 
-const step: IntegrationStep = {
+const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: STEP_ID,
   name: 'Fetch administrators',
   types: [ADMIN_TYPE],
-  async executionHandler({
-    instance,
-    jobState,
-  }: IntegrationStepExecutionContext) {
+  async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 
     const { administrators } = await client.listAdministrators();

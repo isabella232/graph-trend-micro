@@ -1,11 +1,16 @@
-import { createMockStepExecutionContext } from 'test';
+import { createMockStepExecutionContext } from '../../../../test';
 
 import step from '../index';
 
 import entities from './__fixtures__/entities.json';
 
 test('step data collection', async () => {
-  const context = createMockStepExecutionContext({ entities });
+  const context = createMockStepExecutionContext({
+    entities,
+    instanceConfig: {
+      apiKey: 'apiKey',
+    },
+  });
   await step.executionHandler(context);
 
   expect(context.jobState.collectedEntities).toHaveLength(0);

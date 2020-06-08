@@ -1,26 +1,23 @@
 import {
   Entity,
   IntegrationStep,
-  IntegrationStepExecutionContext,
   createIntegrationEntity,
-} from '@jupiterone/integration-sdk';
+} from '@jupiterone/integration-sdk-core';
 
 import {
   createDeepSecurityClient,
   DeepSecurityComputerGroup,
 } from '../../provider';
+import { TrendMicroIntegrationConfig } from '../../types';
 
 export const STEP_ID = 'fetch-computer-groups';
 export const COMPUTER_GROUP_TYPE = 'trend_micro_computer_group';
 
-const step: IntegrationStep = {
+const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: STEP_ID,
   name: 'Fetch computer groups',
   types: [COMPUTER_GROUP_TYPE],
-  async executionHandler({
-    instance,
-    jobState,
-  }: IntegrationStepExecutionContext) {
+  async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 
     const { computerGroups } = await client.listComputerGroups();
@@ -75,6 +72,8 @@ export function createComputerGroupEntity(
  * the data model requires
  */
 const COMPUTER_GROUP_ID_PREFIX = 'trend-micro-computer-group';
-export function createComputerGroupEntityIdentifier(id?: string): string {
+export function createComputerGroupEntityIdentifier(
+  id?: string,
+): string | undefined {
   return id ? `${COMPUTER_GROUP_ID_PREFIX}:${id}` : undefined;
 }
