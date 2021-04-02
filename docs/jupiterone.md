@@ -1,5 +1,27 @@
 # Integration with JupiterOne
 
+## Trend Micro + JupiterOne Integration Benefits
+
+- Visualize Trend Micro administrators in the JupiterOne graph.
+- Visualize Trend Micro endpoint agents and the devices they protect in the
+  JupiterOne graph.
+- Map Trend Micro endpoint agents to devices and devices to the employee who is
+  the owner. 
+- Monitor changes to Trend Micro administrators, endpoint agents, and devices
+  using JupiterOne alerts. 
+
+## How it Works
+
+- JupiterOne periodically fetches Trend Micro administrators, agents, and 
+devices to update the graph.
+- Write JupiterOne queries to review and monitor updates to the graph.
+- Configure alerts to take action when the JupiterOne graph changes.
+
+## Requirements
+
+- JupiterOne requires an API Key that has been configured for read access.
+- You must have permission in JupiterOne to install new integrations.
+
 ## Setup
 
 JupiterOne provides a managed integration for Trend Micro Deep Security. The
