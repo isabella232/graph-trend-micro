@@ -88,7 +88,7 @@ test('administratorRole fetching', async () => {
   });
 });
 
-test('administator role entity conversion', async () => {
+test('administator role entity conversion', () => {
   const role = {
     ID: 4,
     name: 'New Role_2',

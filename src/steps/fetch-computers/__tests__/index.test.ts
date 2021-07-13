@@ -76,7 +76,7 @@ test('computer fetching', async () => {
   });
 });
 
-test('computer entity conversion', async () => {
+test('computer entity conversion', () => {
   const computer = {
     hostName: 'ec2-54-187-35-33.us-west-2.compute.amazonaws.com',
     description:

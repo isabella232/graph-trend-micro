@@ -4,7 +4,8 @@ import {
   JobState,
   IntegrationStep,
   IntegrationStepExecutionContext,
-  createIntegrationRelationship,
+  RelationshipClass,
+  createDirectRelationship,
 } from '@jupiterone/integration-sdk-core';
 
 import { STEP_ID as ADMIN_STEP, ADMIN_TYPE } from '../fetch-administrators';
@@ -13,7 +14,15 @@ import { STEP_ID as ROLE_STEP, ROLE_TYPE } from '../fetch-administrator-roles';
 const step: IntegrationStep = {
   id: 'build-administrator-role-relationships',
   name: 'Build administrator role relationships',
-  types: ['trend_micro_administrator_assigned_role'],
+  entities: [],
+  relationships: [
+    {
+      _type: 'trend_micro_administrator_assigned_role',
+      sourceType: ADMIN_TYPE,
+      _class: RelationshipClass.ASSIGNED,
+      targetType: ROLE_TYPE,
+    },
+  ],
   dependsOn: [ADMIN_STEP, ROLE_STEP],
   async executionHandler({ jobState }: IntegrationStepExecutionContext) {
     const roleIdMap = await createRoleIdMap(jobState);
@@ -46,8 +55,8 @@ export function createAdministratorToRoleRelationship(
   admin: Entity,
   role: Entity,
 ): Relationship {
-  return createIntegrationRelationship({
-    _class: 'ASSIGNED',
+  return createDirectRelationship({
+    _class: RelationshipClass.ASSIGNED,
     from: admin,
     to: role,
   });

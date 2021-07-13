@@ -96,7 +96,7 @@ test('administrator fetching', async () => {
   });
 });
 
-test('administator entity conversion', async () => {
+test('administator entity conversion', () => {
   const admin = {
     username: 'charlie.duong.test',
     fullName: 'Charlie Test',

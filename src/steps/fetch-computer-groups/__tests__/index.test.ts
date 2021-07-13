@@ -64,7 +64,7 @@ test('computer group fetching', async () => {
   });
 });
 
-test('computer entity conversion', async () => {
+test('computer entity conversion', () => {
   const group = {
     type: 'aws-subnet',
     name: 'subnet-ed0c7888',

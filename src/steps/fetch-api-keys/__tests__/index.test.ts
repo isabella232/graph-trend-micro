@@ -69,7 +69,7 @@ test('api key fetching', async () => {
   });
 });
 
-test('api key entity conversion', async () => {
+test('api key entity conversion', () => {
   const apiKey = {
     keyName: 'jupiterone-test',
     description: 'Test api key for integration',
