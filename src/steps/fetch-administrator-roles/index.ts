@@ -16,7 +16,14 @@ export const ROLE_TYPE = 'trend_micro_administrator_role';
 const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: STEP_ID,
   name: 'Fetch administrator roles',
-  types: [ROLE_TYPE],
+  entities: [
+    {
+      resourceName: 'Administrator Role',
+      _type: ROLE_TYPE,
+      _class: 'AccessRole',
+    },
+  ],
+  relationships: [],
   async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 

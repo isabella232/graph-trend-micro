@@ -1,6 +1,5 @@
 import { IntegrationInvocationConfig } from '@jupiterone/integration-sdk-core';
 
-import instanceConfigFields from './instanceConfigFields';
 import validateInvocation from './validateInvocation';
 
 import buildAdminRoleRelationships from './steps/build-administrator-role-relationships';
@@ -13,7 +12,12 @@ import fetchComputerGroups from './steps/fetch-computer-groups';
 import { TrendMicroIntegrationConfig } from './types';
 
 export const invocationConfig: IntegrationInvocationConfig<TrendMicroIntegrationConfig> = {
-  instanceConfigFields,
+  instanceConfigFields: {
+    apiKey: {
+      type: 'string',
+      mask: true,
+    },
+  },
   validateInvocation,
   integrationSteps: [
     buildAdminRoleRelationships,

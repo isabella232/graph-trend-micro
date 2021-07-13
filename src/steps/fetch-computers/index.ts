@@ -14,7 +14,14 @@ export const COMPUTER_TYPE = 'trend_micro_computer';
 const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: STEP_ID,
   name: 'Fetch computers',
-  types: [COMPUTER_TYPE],
+  entities: [
+    {
+      resourceName: 'Computer',
+      _type: COMPUTER_TYPE,
+      _class: 'Host',
+    },
+  ],
+  relationships: [],
   async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 

@@ -12,7 +12,14 @@ const API_KEY_TYPE = 'trend_micro_api_key';
 const step: IntegrationStep<TrendMicroIntegrationConfig> = {
   id: 'fetch-api-keys',
   name: 'Fetch API Keys',
-  types: [API_KEY_TYPE],
+  entities: [
+    {
+      resourceName: 'API Key',
+      _type: API_KEY_TYPE,
+      _class: 'Key',
+    },
+  ],
+  relationships: [],
   async executionHandler({ instance, jobState }) {
     const client = createDeepSecurityClient(instance);
 

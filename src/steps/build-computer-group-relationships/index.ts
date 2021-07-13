@@ -4,7 +4,8 @@ import {
   JobState,
   IntegrationStep,
   IntegrationStepExecutionContext,
-  createIntegrationRelationship,
+  RelationshipClass,
+  createDirectRelationship,
 } from '@jupiterone/integration-sdk-core';
 
 import { STEP_ID as COMPUTER_STEP, COMPUTER_TYPE } from '../fetch-computers';
@@ -16,7 +17,15 @@ import {
 const step: IntegrationStep = {
   id: 'build-computer-group-relationships',
   name: 'Build computer group relationships',
-  types: ['trend_micro_computer_has_group'],
+  entities: [],
+  relationships: [
+    {
+      _type: 'trend_micro_computer_has_group',
+      sourceType: COMPUTER_GROUP_TYPE,
+      _class: RelationshipClass.HAS,
+      targetType: COMPUTER_TYPE,
+    },
+  ],
   dependsOn: [COMPUTER_STEP, COMPUTER_GROUP_STEP],
   async executionHandler({ jobState }: IntegrationStepExecutionContext) {
     const groupIdMap = await createComputerGroupIdMap(jobState);
@@ -52,8 +61,8 @@ export function createComputerGroupRelationship(
   computer: Entity,
   group: Entity,
 ): Relationship {
-  return createIntegrationRelationship({
-    _class: 'HAS',
+  return createDirectRelationship({
+    _class: RelationshipClass.HAS,
     from: computer,
     to: group,
   });
